@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { ShoppingCart, Search, Menu, X, Zap } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { ShoppingCart, Search, Menu, X, Zap } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartCount] = useState(3);
 
   const menuItems = [
-    { name: 'Recargables', href: '#rechargeable' },
-    { name: 'Desechables', href: '#disposable' },
-    { name: 'Esencias', href: '#essence' },
-    { name: 'Resistencias', href: '#resistance' },
+    { name: "Recargables", href: "#rechargeable" },
+    { name: "Desechables", href: "#disposable" },
+    { name: "Esencias", href: "#essence" },
+    { name: "Resistencias", href: "#resistance" },
   ];
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200/50"
@@ -22,7 +22,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div 
+          <motion.div
             className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
@@ -30,7 +30,7 @@ const Header = () => {
               <Zap className="w-6 h-6 text-white" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-              VapeStore
+              Vape Shop Cba
             </span>
           </motion.div>
 
@@ -46,7 +46,7 @@ const Header = () => {
                 {item.name}
                 <motion.div
                   className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"
-                  whileHover={{ width: '100%' }}
+                  whileHover={{ width: "100%" }}
                   transition={{ duration: 0.3 }}
                 />
               </motion.a>
@@ -62,7 +62,7 @@ const Header = () => {
             >
               <Search className="w-5 h-5" />
             </motion.button>
-            
+
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -86,7 +86,11 @@ const Header = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 text-neutral-600"
             >
-              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </motion.button>
           </div>
         </div>
@@ -97,7 +101,7 @@ const Header = () => {
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white/95 backdrop-blur-md border-t border-neutral-200/50"
           >
@@ -122,3 +126,4 @@ const Header = () => {
 };
 
 export default Header;
+

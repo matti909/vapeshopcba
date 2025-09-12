@@ -1,6 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Mouse } from 'lucide-react';
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles, Mouse } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -9,112 +8,112 @@ const Hero = () => {
       <div className="absolute inset-0">
         {/* Main vapor clouds */}
         <motion.div
-          animate={{ 
+          animate={{
             scale: [1, 1.3, 1.1, 1],
             x: [0, 30, -20, 0],
-            opacity: [0.4, 0.7, 0.5, 0.4]
+            opacity: [0.4, 0.7, 0.5, 0.4],
           }}
-          transition={{ 
+          transition={{
             duration: 12,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute top-1/4 left-1/5 w-96 h-64 bg-gradient-to-br from-primary-400/30 via-accent-400/25 to-transparent rounded-full blur-2xl"
         />
         <motion.div
-          animate={{ 
+          animate={{
             scale: [1.2, 0.9, 1.4, 1.2],
             x: [0, -30, 40, 0],
-            opacity: [0.3, 0.6, 0.4, 0.3]
+            opacity: [0.3, 0.6, 0.4, 0.3],
           }}
-          transition={{ 
+          transition={{
             duration: 16,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute bottom-1/4 right-1/5 w-80 h-96 bg-gradient-to-tl from-accent-500/30 via-primary-400/25 to-transparent rounded-full blur-2xl"
         />
-        
+
         {/* Smaller vapor elements */}
         <motion.div
-          animate={{ 
+          animate={{
             y: [0, -80, -40, 0],
             opacity: [0.2, 0.5, 0.3, 0.2],
-            scale: [0.9, 1.3, 1.1, 0.9]
+            scale: [0.9, 1.3, 1.1, 0.9],
           }}
-          transition={{ 
+          transition={{
             duration: 10,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute top-1/3 right-1/4 w-64 h-48 bg-gradient-to-r from-primary-300/25 to-accent-300/20 rounded-full blur-xl"
         />
         <motion.div
-          animate={{ 
+          animate={{
             y: [0, 60, 30, 0],
             opacity: [0.2, 0.4, 0.3, 0.2],
-            scale: [1.1, 0.8, 1.2, 1.1]
+            scale: [1.1, 0.8, 1.2, 1.1],
           }}
-          transition={{ 
+          transition={{
             duration: 14,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute bottom-1/3 left-1/4 w-72 h-56 bg-gradient-to-l from-accent-400/25 to-primary-300/20 rounded-full blur-xl"
         />
 
         {/* Geometric vape-inspired shapes */}
         <motion.div
-          animate={{ 
+          animate={{
             rotate: [0, 360],
             scale: [1, 1.2, 1],
-            y: [0, -20, 0]
+            y: [0, -20, 0],
           }}
-          transition={{ 
+          transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           className="absolute top-1/3 right-1/6 w-6 h-40 bg-gradient-to-b from-primary-400/30 to-transparent rounded-full blur-sm"
         />
         <motion.div
-          animate={{ 
+          animate={{
             rotate: [360, 0],
             scale: [1.3, 0.8, 1.3],
-            y: [0, 15, 0]
+            y: [0, 15, 0],
           }}
-          transition={{ 
+          transition={{
             duration: 18,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           className="absolute bottom-1/3 left-1/6 w-5 h-36 bg-gradient-to-t from-accent-400/30 to-transparent rounded-full blur-sm"
         />
-        
+
         {/* Additional floating particles */}
         <motion.div
-          animate={{ 
+          animate={{
             x: [0, 100, -50, 0],
             y: [0, -30, 20, 0],
-            opacity: [0.3, 0.6, 0.4, 0.3]
+            opacity: [0.3, 0.6, 0.4, 0.3],
           }}
-          transition={{ 
+          transition={{
             duration: 22,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute top-1/2 left-1/5 w-32 h-32 bg-gradient-to-br from-primary-300/20 to-accent-300/15 rounded-full blur-lg"
         />
         <motion.div
-          animate={{ 
+          animate={{
             x: [0, -80, 60, 0],
             y: [0, 40, -25, 0],
-            opacity: [0.2, 0.5, 0.3, 0.2]
+            opacity: [0.2, 0.5, 0.3, 0.2],
           }}
-          transition={{ 
+          transition={{
             duration: 26,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           className="absolute top-2/3 right-1/5 w-40 h-24 bg-gradient-to-bl from-accent-300/20 to-primary-300/15 rounded-full blur-lg"
         />
@@ -138,7 +137,9 @@ const Hero = () => {
             className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-neutral-200/50 shadow-lg"
           >
             <Sparkles className="w-5 h-5 text-accent-500" />
-            <span className="text-sm font-medium text-neutral-700">Nueva colección disponible</span>
+            <span className="text-sm font-medium text-neutral-700">
+              Nueva colección disponible
+            </span>
           </motion.div>
 
           {/* Main heading */}
@@ -164,8 +165,9 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Descubre nuestra colección premium de vapes, esencias y accesorios. 
-            Tecnología avanzada, diseño futurista y la mejor experiencia de vapeo.
+            Descubre nuestra colección premium de vapes, esencias y accesorios.
+            Tecnología avanzada, diseño futurista y la mejor experiencia de
+            vapeo.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -183,7 +185,7 @@ const Hero = () => {
               <span>Explorar Productos</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
-            
+
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -192,7 +194,6 @@ const Hero = () => {
               Ver Ofertas
             </motion.button>
           </motion.div>
-
         </motion.div>
       </div>
 
@@ -204,9 +205,9 @@ const Hero = () => {
         className="absolute right-8 top-1/3 -translate-y-1/3 hidden lg:flex flex-col space-y-6 items-center"
       >
         {[
-          { number: '500+', label: 'Productos' },
-          { number: '50K+', label: 'Clientes' },
-          { number: '4.9★', label: 'Rating' }
+          { number: "500+", label: "Productos" },
+          { number: "50K+", label: "Clientes" },
+          { number: "4.9★", label: "Rating" },
         ].map((stat, index) => (
           <motion.div
             key={index}
@@ -219,7 +220,9 @@ const Hero = () => {
             <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
               {stat.number}
             </div>
-            <div className="text-neutral-600 font-medium text-sm">{stat.label}</div>
+            <div className="text-neutral-600 font-medium text-sm">
+              {stat.label}
+            </div>
           </motion.div>
         ))}
       </motion.div>
@@ -238,9 +241,9 @@ const Hero = () => {
           Desliza hacia abajo
         </motion.div>
         <motion.div
-          animate={{ 
+          animate={{
             y: [0, 8, 0],
-            opacity: [0.7, 1, 0.7]
+            opacity: [0.7, 1, 0.7],
           }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex items-center justify-center bg-white/80 backdrop-blur-sm p-4 rounded-full border border-neutral-200/50 shadow-lg"
@@ -253,3 +256,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
