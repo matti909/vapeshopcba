@@ -17,7 +17,7 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200/50"
+      className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-neutral-800/50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -29,8 +29,8 @@ const Header = () => {
             <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center">
               <Zap className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-              Vape Shop Cba
+            <span className="text-2xl font-bold bg-gradient-to-r from-white via-primary-300 to-accent-300 bg-clip-text text-transparent">
+              Vapa Shop Cba
             </span>
           </motion.div>
 
@@ -40,7 +40,7 @@ const Header = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-neutral-700 hover:text-primary-600 font-medium transition-colors relative"
+                className="text-neutral-300 hover:text-primary-400 font-medium transition-colors relative"
                 whileHover={{ y: -2 }}
               >
                 {item.name}
@@ -58,7 +58,7 @@ const Header = () => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-neutral-600 hover:text-primary-600 transition-colors"
+              className="p-2 text-neutral-400 hover:text-primary-400 transition-colors"
             >
               <Search className="w-5 h-5" />
             </motion.button>
@@ -66,7 +66,7 @@ const Header = () => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="relative p-2 text-neutral-600 hover:text-primary-600 transition-colors"
+              className="relative p-2 text-neutral-400 hover:text-primary-400 transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
               {cartCount > 0 && (
@@ -84,7 +84,7 @@ const Header = () => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-neutral-600"
+              className="md:hidden p-2 text-neutral-400"
             >
               {isMenuOpen ? (
                 <X className="w-5 h-5" />
@@ -103,14 +103,14 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-md border-t border-neutral-200/50"
+            className="md:hidden bg-black/95 backdrop-blur-md border-t border-neutral-800/50"
           >
             <div className="px-4 py-4 space-y-3">
               {menuItems.map((item) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className="block py-2 text-neutral-700 hover:text-primary-600 font-medium transition-colors"
+                  className="block py-2 text-neutral-300 hover:text-primary-400 font-medium transition-colors"
                   whileHover={{ x: 10 }}
                   onClick={() => setIsMenuOpen(false)}
                 >
