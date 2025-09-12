@@ -1,0 +1,210 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { ShoppingCart, Heart, Star, Zap } from 'lucide-react';
+import { Product } from '../types/product';
+
+interface ProductCardProps {
+  product: Product;
+  index: number;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const categoryIcons = {
+    rechargeable: Zap,
+    disposable: ShoppingCart,
+    essence: Heart,
+    resistance: Star
+  };
+
+  const CategoryIcon = categoryIcons[product.category];
+
+  const categoryColors = {
+    rechargeable: 'from-primary-500 to-primary-600',
+    disposable: 'from-accent-500 to-accent-600',
+    essence: 'from-emerald-500 to-emerald-600',
+    resistance: 'from-orange-500 to-orange-600'
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.6 }}
+      whileHover={{ y: -8, scale: 1.02 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="group relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-neutral-200/50 overflow-hidden"
+    >
+      {/* Discount badge */}
+      {product.originalPrice && (
+        <motion.div
+          initial={{ scale: 0, rotate: -45 }}
+          animate={{ scale: 1, rotate: -45 }}
+          transition={{ delay: index * 0.1 + 0.3 }}
+          className="absolute top-4 -right-2 bg-gradient-to-r from-accent-500 to-accent-600 text-white px-8 py-1 text-sm font-bold z-10 transform rotate-12"
+        >
+          OFERTA
+        </motion.div>
+      )}
+
+      {/* Stock status */}
+      <div className="absolute top-4 left-4 z-10">
+        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+          product.inStock 
+            ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' 
+            : 'bg-red-100 text-red-700 border border-red-200'
+        }`}>
+          {product.inStock ? 'En Stock' : 'Agotado'}
+        </span>
+      </div>
+
+      {/* Like button */}
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setIsLiked(!isLiked)}
+        className="absolute top-4 right-4 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md hover:shadow-lg transition-all"
+      >
+        <Heart 
+          className={`w-5 h-5 transition-colors ${
+            isLiked ? 'text-red-500 fill-red-500' : 'text-neutral-400'
+          }`} 
+        />
+      </motion.button>
+
+      {/* Product image */}
+      <div className="relative h-64 overflow-hidden rounded-t-3xl">
+        <motion.img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-cover"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.6 }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        
+        {/* Category icon */}
+        <div className={`absolute bottom-4 left-4 p-2 bg-gradient-to-r ${categoryColors[product.category]} rounded-xl shadow-lg`}>
+          <CategoryIcon className="w-5 h-5 text-white" />
+        </div>
+      </div>
+
+      {/* Product info */}
+      <div className="p-6 space-y-4">
+        {/* Rating */}
+        <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className={`w-4 h-4 ${
+                  i < Math.floor(product.rating)
+                    ? 'text-yellow-400 fill-yellow-400'
+                    : 'text-neutral-300'
+                }`}
+              />
+            ))}
+          </div>
+          <span className="text-sm text-neutral-600">
+            {product.rating} ({product.reviews} reviews)
+          </span>
+        </div>
+
+        {/* Product name */}
+        <h3 className="text-xl font-bold text-neutral-800 group-hover:text-primary-600 transition-colors">
+          {product.name}
+        </h3>
+
+        {/* Description */}
+        <p className="text-neutral-600 text-sm line-clamp-2">
+          {product.description}
+        </p>
+
+        {/* Features */}
+        <div className="flex flex-wrap gap-2">
+          {product.features.slice(0, 2).map((feature, i) => (
+            <span
+              key={i}
+              className="px-3 py-1 bg-neutral-100 text-neutral-700 text-xs rounded-full font-medium"
+            >
+              {feature}
+            </span>
+          ))}
+          {product.features.length > 2 && (
+            <span className="px-3 py-1 bg-neutral-100 text-neutral-700 text-xs rounded-full font-medium">
+              +{product.features.length - 2} más
+            </span>
+          )}
+        </div>
+
+        {/* Colors/Flavors */}
+        {(product.colors || product.flavors) && (
+          <div className="flex items-center space-x-2">
+            <span className="text-sm text-neutral-600">
+              {product.colors ? 'Colores:' : 'Sabores:'}
+            </span>
+            <div className="flex space-x-1">
+              {(product.colors || product.flavors)?.slice(0, 3).map((option, i) => (
+                <div
+                  key={i}
+                  className="w-6 h-6 rounded-full bg-gradient-to-br from-primary-200 to-accent-200 border-2 border-white shadow-sm"
+                  title={option}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Price and action */}
+        <div className="flex items-center justify-between pt-4 border-t border-neutral-200/50">
+          <div className="space-y-1">
+            <div className="flex items-center space-x-2">
+              <span className="text-2xl font-bold text-neutral-800">
+                ${product.price}
+              </span>
+              {product.originalPrice && (
+                <span className="text-lg text-neutral-500 line-through">
+                  ${product.originalPrice}
+                </span>
+              )}
+            </div>
+            {product.originalPrice && (
+              <span className="text-sm text-emerald-600 font-medium">
+                Ahorra ${(product.originalPrice - product.price).toFixed(2)}
+              </span>
+            )}
+          </div>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            disabled={!product.inStock}
+            className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 flex items-center space-x-2 ${
+              product.inStock
+                ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg hover:shadow-xl'
+                : 'bg-neutral-200 text-neutral-500 cursor-not-allowed'
+            }`}
+          >
+            <ShoppingCart className="w-5 h-5" />
+            <span>{product.inStock ? 'Agregar' : 'Agotado'}</span>
+          </motion.button>
+        </div>
+      </div>
+
+      {/* Hover glow effect */}
+      <motion.div
+        className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{
+          background: 'linear-gradient(45deg, rgba(14, 165, 233, 0.1), rgba(217, 70, 239, 0.1))',
+          filter: 'blur(20px)',
+        }}
+        animate={isHovered ? { scale: 1.05 } : { scale: 1 }}
+      />
+    </motion.div>
+  );
+};
+
+export default ProductCard;
