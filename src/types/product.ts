@@ -5,7 +5,7 @@ export interface Product {
   price: number;
   originalPrice?: number;
   image: string;
-  category: 'rechargeable' | 'disposable' | 'essence' | 'resistance';
+  category: "rechargeable" | "disposable" | "essence" | "resistance";
   inStock: boolean;
   rating: number;
   reviews: number;
@@ -19,3 +19,4 @@ export interface CartItem extends Product {
   selectedColor?: string;
   selectedFlavor?: string;
 }
+

@@ -27,3 +27,4 @@ dist-ssr
 .bolt/
 CLAUDE.md
 bun.lock
+public/*

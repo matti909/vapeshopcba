@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Mouse } from "lucide-react";
 
 const Hero = () => {
@@ -165,9 +166,9 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Descubre nuestra colección premium de vapes, esencias y accesorios.
-            Tecnología avanzada, diseño futurista y la mejor experiencia de
-            vapeo.
+            Experiencia premium de vapeo con tecnología avanzada y sabores auténticos.
+            <br className="hidden md:block" />
+            Para adultos que buscan una alternativa de calidad al cigarrillo tradicional.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -177,22 +178,26 @@ const Hero = () => {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
           >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="group bg-gradient-to-r from-primary-500 to-accent-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
-            >
-              <span>Explorar Productos</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            <Link to="/productos">
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="group bg-gradient-to-r from-primary-500 to-accent-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 cursor-pointer"
+              >
+                <span>Explorar Productos</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.div>
+            </Link>
 
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-2xl font-semibold text-lg border border-white/20 hover:border-primary-300 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Ver Ofertas
-            </motion.button>
+            <Link to="/productos?category=disposable">
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-2xl font-semibold text-lg border border-white/20 hover:border-primary-300 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+              >
+                Ver Desechables
+              </motion.div>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

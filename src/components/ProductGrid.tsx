@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Filter, Grid, List } from 'lucide-react';
+import { Filter, Grid, List, Loader2, AlertCircle } from 'lucide-react';
 import ProductCard from './ProductCard';
-import { products } from '../data/products';
-import { Product } from '../types/product';
+import { useProducts } from '../hooks/useProducts';
 
 const ProductGrid = () => {
+  const { products, loading, error, refetch } = useProducts();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [sortBy, setSortBy] = useState<string>('name');
@@ -36,6 +36,60 @@ const ProductGrid = () => {
     }
   });
 
+  // Loading state
+  if (loading) {
+    return (
+      <section id="products" className="py-20 bg-gradient-to-br from-neutral-50 to-primary-50/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center py-20">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+              className="inline-block"
+            >
+              <Loader2 className="w-12 h-12 text-primary-500" />
+            </motion.div>
+            <h3 className="text-2xl font-bold text-neutral-800 mt-6 mb-4">
+              Cargando productos...
+            </h3>
+            <p className="text-neutral-600">
+              Obteniendo los últimos productos desde nuestra base de datos
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <section id="products" className="py-20 bg-gradient-to-br from-neutral-50 to-primary-50/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center py-20">
+            <div className="w-24 h-24 bg-red-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+              <AlertCircle className="w-12 h-12 text-red-500" />
+            </div>
+            <h3 className="text-2xl font-bold text-neutral-800 mb-4">
+              Error al cargar productos
+            </h3>
+            <p className="text-neutral-600 mb-8">
+              {error}
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={refetch}
+              className="bg-gradient-to-r from-primary-500 to-accent-500 text-white px-8 py-3 rounded-2xl font-semibold"
+            >
+              Reintentar
+            </motion.button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="products" className="py-20 bg-gradient-to-br from-neutral-50 to-primary-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,6 +108,14 @@ const ProductGrid = () => {
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
             Descubre productos premium diseñados para la mejor experiencia de vapeo
           </p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={refetch}
+            className="mt-4 text-sm text-primary-600 hover:text-primary-700 font-medium"
+          >
+            Actualizar productos
+          </motion.button>
         </motion.div>
 
         {/* Filters and controls */}
