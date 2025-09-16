@@ -12,6 +12,9 @@ export interface Product {
   features: string[];
   colors?: string[];
   flavors?: string[];
+  flavor?: string; // Single flavor string for compatibility
+  puffCount?: number; // Number of puffs
+  brand?: string; // Brand name
 }
 
 export interface CartItem extends Product {

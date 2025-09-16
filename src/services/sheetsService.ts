@@ -1,4 +1,6 @@
 // Service to fetch data from Google Sheets CSV
+import { Product } from "../types/product";
+
 const SHEETS_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWFxhqTyWxoAjqOs4tB1olgDgXBwX4U_BlgN89OCR_4GoQZ8U0InHe_jqm1XqDi2YxNiclUQAGHEX2/pub?gid=0&single=true&output=csv";
 
@@ -10,23 +12,6 @@ export interface SheetProduct {
   imagen: string;
   categoria: string;
   precio: string;
-}
-
-export interface Product {
-  id: string;
-  name: string;
-  brand: string;
-  description: string;
-  price: number;
-  originalPrice?: number;
-  image: string;
-  category: "disposable" | "rechargeable" | "essence" | "resistance";
-  inStock: boolean;
-  rating: number;
-  reviews: number;
-  features: string[];
-  flavors?: string[];
-  puffCount: number;
 }
 
 // Function to parse CSV text into array of objects
@@ -111,7 +96,6 @@ function transformToProduct(sheetProduct: SheetProduct): Product {
   return {
     id: sheetProduct.id,
     name: `${sheetProduct.marca} ${sheetProduct.puff}`,
-    brand: sheetProduct.marca,
     description: `${sheetProduct.marca} con sabor a ${sheetProduct.sabor}. Vape premium con ${sheetProduct.puff} puffs de duración.`,
     price: price,
     image: image,
@@ -121,8 +105,10 @@ function transformToProduct(sheetProduct: SheetProduct): Product {
     reviews: Math.floor(Math.random() * 1000) + 100,
     features,
     flavors,
+    flavor: sheetProduct.sabor, // Add single flavor string for compatibility
     puffCount,
-  };
+    brand: sheetProduct.marca,
+  } as Product;
 }
 
 // Main service function to fetch and parse products

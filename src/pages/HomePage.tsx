@@ -1,15 +1,14 @@
-import React from 'react';
-import Hero from '../components/Hero';
-import ProductGrid from '../components/ProductGrid';
-import ResponsibleMarketing from '../components/ResponsibleMarketing';
-import SocialSection from '../components/SocialSection';
-import Newsletter from '../components/Newsletter';
+import Hero from "../components/Hero";
+import FeaturedProducts from "../components/FeaturedProducts";
+import ResponsibleMarketing from "../components/ResponsibleMarketing";
+import SocialSection from "../components/SocialSection";
+import Newsletter from "../components/Newsletter";
 
 const HomePage = () => {
   return (
     <div>
       <Hero />
-      <ProductGrid />
+      <FeaturedProducts />
       <ResponsibleMarketing />
       <SocialSection />
       <Newsletter />
@@ -18,3 +17,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
