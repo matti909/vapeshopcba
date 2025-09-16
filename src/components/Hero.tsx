@@ -1,264 +1,352 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Mouse } from "lucide-react";
+import { ArrowRight, Zap, Droplets, Settings } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-700">
-      {/* Vaping-themed background elements */}
-      <div className="absolute inset-0">
-        {/* Main vapor clouds */}
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1.1, 1],
-            x: [0, 30, -20, 0],
-            opacity: [0.4, 0.7, 0.5, 0.4],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 left-1/5 w-96 h-64 bg-gradient-to-br from-primary-400/30 via-accent-400/25 to-transparent rounded-full blur-2xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 0.9, 1.4, 1.2],
-            x: [0, -30, 40, 0],
-            opacity: [0.3, 0.6, 0.4, 0.3],
-          }}
-          transition={{
-            duration: 16,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-1/4 right-1/5 w-80 h-96 bg-gradient-to-tl from-accent-500/30 via-primary-400/25 to-transparent rounded-full blur-2xl"
-        />
+    <section className="relative min-h-screen pt-20 pb-10 overflow-hidden bg-gradient-to-br from-neutral-50 via-primary-50/30 to-accent-50/20">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-16"
+      >
+        <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <span className="bg-gradient-to-r from-neutral-800 via-primary-600 to-accent-600 bg-clip-text text-transparent">
+            Vape Shop Cba
+          </span>
+        </h1>
+        <p className="text-xl md:text-2xl text-neutral-600 max-w-3xl mx-auto">
+          Descubre nuestra colección premium de vapes y accesorios
+        </p>
+      </motion.div>
 
-        {/* Smaller vapor elements */}
-        <motion.div
-          animate={{
-            y: [0, -80, -40, 0],
-            opacity: [0.2, 0.5, 0.3, 0.2],
-            scale: [0.9, 1.3, 1.1, 0.9],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/3 right-1/4 w-64 h-48 bg-gradient-to-r from-primary-300/25 to-accent-300/20 rounded-full blur-xl"
-        />
-        <motion.div
-          animate={{
-            y: [0, 60, 30, 0],
-            opacity: [0.2, 0.4, 0.3, 0.2],
-            scale: [1.1, 0.8, 1.2, 1.1],
-          }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-1/3 left-1/4 w-72 h-56 bg-gradient-to-l from-accent-400/25 to-primary-300/20 rounded-full blur-xl"
-        />
-
-        {/* Geometric vape-inspired shapes */}
-        <motion.div
-          animate={{
-            rotate: [0, 360],
-            scale: [1, 1.2, 1],
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute top-1/3 right-1/6 w-6 h-40 bg-gradient-to-b from-primary-400/30 to-transparent rounded-full blur-sm"
-        />
-        <motion.div
-          animate={{
-            rotate: [360, 0],
-            scale: [1.3, 0.8, 1.3],
-            y: [0, 15, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute bottom-1/3 left-1/6 w-5 h-36 bg-gradient-to-t from-accent-400/30 to-transparent rounded-full blur-sm"
-        />
-
-        {/* Additional floating particles */}
-        <motion.div
-          animate={{
-            x: [0, 100, -50, 0],
-            y: [0, -30, 20, 0],
-            opacity: [0.3, 0.6, 0.4, 0.3],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/2 left-1/5 w-32 h-32 bg-gradient-to-br from-primary-300/20 to-accent-300/15 rounded-full blur-lg"
-        />
-        <motion.div
-          animate={{
-            x: [0, -80, 60, 0],
-            y: [0, 40, -25, 0],
-            opacity: [0.2, 0.5, 0.3, 0.2],
-          }}
-          transition={{
-            duration: 26,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-2/3 right-1/5 w-40 h-24 bg-gradient-to-bl from-accent-300/20 to-primary-300/15 rounded-full blur-lg"
-        />
-      </div>
-
-      {/* Overlay gradient for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/20" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-8"
-        >
-          {/* Badge */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-[600px]">
+          {/* TODOS LOS PRODUCTOS - Main large card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-neutral-200/50 shadow-lg"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            whileHover={{ scale: 1.02, y: -5 }}
+            className="lg:col-span-6 group relative overflow-hidden rounded-3xl cursor-pointer"
           >
-            <Sparkles className="w-5 h-5 text-accent-500" />
-            <span className="text-sm font-medium text-neutral-700">
-              Nueva colección disponible
-            </span>
+            {/* Background Image with Overlay */}
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style={{
+                backgroundImage:
+                  "url(https://images.pexels.com/photos/7148621/pexels-photo-7148621.jpeg)",
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-900/80 via-accent-900/70 to-neutral-900/90 group-hover:from-primary-800/90 group-hover:via-accent-800/80 group-hover:to-neutral-800/95 transition-all duration-700" />
+
+            {/* Animated Background Elements */}
+            <motion.div
+              animate={{
+                rotate: [0, 360],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-r from-primary-400/20 to-accent-400/20 rounded-full blur-2xl"
+            />
+            <motion.div
+              animate={{
+                rotate: [360, 0],
+                scale: [1.2, 1, 1.2],
+              }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="absolute bottom-10 left-10 w-40 h-40 bg-gradient-to-r from-accent-400/20 to-primary-400/20 rounded-full blur-2xl"
+            />
+
+            {/* Content */}
+            <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-6">
+              <div className="space-y-2">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20"
+                >
+                  <Zap className="w-5 h-5 text-accent-300" />
+                  <span className="text-white/90 text-sm font-medium">
+                    Colección Completa
+                  </span>
+                </motion.div>
+
+                <motion.h2
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="text-4xl md:text-4xl font-bold text-white leading-tight"
+                >
+                  TODOS LOS
+                  <br />
+                  <span className="bg-gradient-to-r from-accent-300 to-primary-300 bg-clip-text text-transparent">
+                    PRODUCTOS
+                  </span>
+                </motion.h2>
+
+                <motion.p
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7 }}
+                  className="text-white/80 text-lg max-w-md"
+                >
+                  Explora nuestra gama completa de vapes recargables,
+                  desechables, esencias y resistencias premium
+                </motion.p>
+              </div>
+
+              <motion.button
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                whileHover={{ scale: 1.05, x: 10 }}
+                whileTap={{ scale: 0.95 }}
+                className="group/btn self-start bg-gradient-to-r from-accent-500 to-primary-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-accent-500/25 transition-all duration-300 flex items-center space-x-3"
+              >
+                <span>Ver Catálogo</span>
+                <ArrowRight className="w-6 h-6 group-hover/btn:translate-x-2 transition-transform duration-300" />
+              </motion.button>
+            </div>
+
+            {/* Hover Glow Effect */}
+            <motion.div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+              style={{
+                background:
+                  "radial-gradient(circle at center, rgba(217, 70, 239, 0.15), transparent 70%)",
+              }}
+            />
           </motion.div>
 
-          {/* Main heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold leading-tight"
-          >
-            <span className="bg-gradient-to-r from-white via-primary-300 to-accent-300 bg-clip-text text-transparent">
-              Vape Shop
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-accent-300 via-primary-300 to-white bg-clip-text text-transparent">
-              Cba
-            </span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed"
-          >
-            Experiencia premium de vapeo con tecnología avanzada y sabores auténticos.
-            <br className="hidden md:block" />
-            Para adultos que buscan una alternativa de calidad al cigarrillo tradicional.
-          </motion.p>
-
-          {/* CTA Buttons */}
+          {/* CONTROL PARENTAL - Warning card */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            whileHover={{ scale: 1.02, y: -3 }}
+            className="lg:col-span-6 group relative overflow-hidden rounded-3xl bg-white border-4 border-black shadow-2xl"
           >
-            <Link to="/productos">
+            {/* Content */}
+            <div className="relative z-10 h-full flex flex-col justify-center items-center p-8 md:p-12 text-center">
               <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group bg-gradient-to-r from-primary-500 to-accent-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="space-y-6"
               >
-                <span>Explorar Productos</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.div>
-            </Link>
+                <div className="w-16 h-16 mx-auto bg-black rounded-2xl flex items-center justify-center mb-6">
+                  <span className="text-white text-2xl font-bold">18+</span>
+                </div>
 
-            <Link to="/productos?category=disposable">
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-2xl font-semibold text-lg border border-white/20 hover:border-primary-300 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-              >
-                Ver Desechables
+                <div className="bg-black text-white p-6 rounded-2xl shadow-lg">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4">
+                    ADVERTENCIA: Este producto contiene nicotina.
+                  </h3>
+                  <p className="text-lg">
+                    La nicotina es una sustancia química adictiva.
+                  </p>
+                </div>
+
+                <div className="space-y-3 text-black">
+                  <p className="text-lg font-semibold">
+                    🔞 Solo para mayores de 18 años
+                  </p>
+                  <p className="text-base">
+                    Venta responsable y uso consciente
+                  </p>
+                </div>
               </motion.div>
-            </Link>
+            </div>
+
+            {/* Subtle hover effect */}
+            <motion.div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 bg-black rounded-3xl" />
           </motion.div>
+
+          {/* RESISTENCIAS Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            whileHover={{ scale: 1.05, y: -8 }}
+            className="lg:col-span-6 group relative overflow-hidden rounded-3xl cursor-pointer"
+          >
+            {/* Background */}
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style={{
+                backgroundImage:
+                  "url(https://images.pexels.com/photos/7148618/pexels-photo-7148618.jpeg)",
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-900/85 via-red-900/80 to-neutral-900/90 group-hover:from-orange-800/90 group-hover:via-red-800/85 group-hover:to-neutral-800/95 transition-all duration-700" />
+
+            {/* Floating Elements */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-6 right-6 w-16 h-16 bg-gradient-to-br from-orange-400/30 to-red-400/30 rounded-2xl backdrop-blur-sm border border-white/10"
+            />
+
+            {/* Content */}
+            <div className="relative z-10 h-full flex flex-col justify-between p-6 md:p-8">
+              <div className="space-y-4">
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                  className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center shadow-lg"
+                >
+                  <Settings className="w-6 h-6 text-white" />
+                </motion.div>
+
+                <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                  RESISTENCIAS
+                </h3>
+
+                <p className="text-white/80 text-sm">
+                  Resistencias de alta calidad para el mejor rendimiento
+                </p>
+              </div>
+
+              <motion.div
+                whileHover={{ x: 5 }}
+                className="flex items-center text-orange-300 font-medium group-hover:text-orange-200 transition-colors"
+              >
+                <span className="text-sm">Explorar</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </motion.div>
+            </div>
+
+            {/* Hover Effect */}
+            <motion.div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{
+                background:
+                  "radial-gradient(circle at center, rgba(251, 146, 60, 0.2), transparent 60%)",
+              }}
+            />
+          </motion.div>
+
+          {/* ESENCIAS Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            whileHover={{ scale: 1.05, y: -8 }}
+            className="lg:col-span-6 group relative overflow-hidden rounded-3xl cursor-pointer"
+          >
+            {/* Background */}
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style={{
+                backgroundImage:
+                  "url(https://images.pexels.com/photos/7148619/pexels-photo-7148619.jpeg)",
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/85 via-teal-900/80 to-neutral-900/90 group-hover:from-emerald-800/90 group-hover:via-teal-800/85 group-hover:to-neutral-800/95 transition-all duration-700" />
+
+            {/* Floating Drops Animation */}
+            {[...Array(3)].map((_, i) => (
+              <motion.div
+                key={i}
+                animate={{
+                  y: [0, -20, 0],
+                  opacity: [0.3, 1, 0.3],
+                }}
+                transition={{
+                  duration: 2 + i * 0.5,
+                  repeat: Infinity,
+                  delay: i * 0.3,
+                  ease: "easeInOut",
+                }}
+                className={`absolute w-3 h-3 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-full ${
+                  i === 0
+                    ? "top-8 right-12"
+                    : i === 1
+                      ? "top-16 right-8"
+                      : "top-12 right-16"
+                }`}
+              />
+            ))}
+
+            {/* Content */}
+            <div className="relative z-10 h-full flex flex-col justify-between p-6 md:p-8">
+              <div className="space-y-4">
+                <motion.div
+                  whileHover={{ rotate: [0, -10, 10, 0] }}
+                  transition={{ duration: 0.6 }}
+                  className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg"
+                >
+                  <Droplets className="w-6 h-6 text-white" />
+                </motion.div>
+
+                <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                  ESENCIAS
+                </h3>
+
+                <p className="text-white/80 text-sm">
+                  Sabores premium para una experiencia única
+                </p>
+              </div>
+
+              <motion.div
+                whileHover={{ x: 5 }}
+                className="flex items-center text-emerald-300 font-medium group-hover:text-emerald-200 transition-colors"
+              >
+                <span className="text-sm">Descubrir</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </motion.div>
+            </div>
+
+            {/* Hover Effect */}
+            <motion.div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{
+                background:
+                  "radial-gradient(circle at center, rgba(52, 211, 153, 0.2), transparent 60%)",
+              }}
+            />
+          </motion.div>
+        </div>
+
+        {/* Stats Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16"
+        >
+          {[
+            { number: "500+", label: "Productos" },
+            { number: "50K+", label: "Clientes" },
+            { number: "4.9★", label: "Rating" },
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/50 shadow-lg"
+            >
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+                {stat.number}
+              </div>
+              <div className="text-neutral-600 font-medium">{stat.label}</div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
-
-      {/* Stats - Right side vertical */}
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1, duration: 0.8 }}
-        className="absolute right-8 top-1/3 -translate-y-1/3 hidden lg:flex flex-col space-y-6 items-center"
-      >
-        {[
-          { number: "500+", label: "Productos" },
-          { number: "50K+", label: "Clientes" },
-          { number: "4.9★", label: "Rating" },
-        ].map((stat, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.2 + index * 0.2, duration: 0.6 }}
-            whileHover={{ scale: 1.05, x: -5 }}
-            className="flex flex-col items-center justify-center text-center bg-white/80 backdrop-blur-sm px-8 py-6 rounded-2xl border border-neutral-200/50 shadow-lg min-w-[140px]"
-          >
-            <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
-              {stat.number}
-            </div>
-            <div className="text-neutral-600 font-medium text-sm">
-              {stat.label}
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center space-y-3"
-      >
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="text-neutral-400 text-sm font-medium text-center"
-        >
-          Desliza hacia abajo
-        </motion.div>
-        <motion.div
-          animate={{
-            y: [0, 8, 0],
-            opacity: [0.7, 1, 0.7],
-          }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex items-center justify-center bg-white/80 backdrop-blur-sm p-4 rounded-full border border-neutral-200/50 shadow-lg"
-        >
-          <Mouse className="w-6 h-6 text-neutral-600" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };
 
 export default Hero;
-
